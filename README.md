@@ -6,6 +6,7 @@ collection and you can look up the nearest dealership to schedule repairs or mod
 ### Intergrated Features  
 - Transitions between different pages
 - Store your lamborghini in a small SQLite database
-- Have a veriaty of models to choose to see all about your car(s).
+- Have a veriaty of models to choose to see all about your car(s)
+- Display images of the cars so you will to find your car easily
 - A page displaying most dealership addresses
 - Google maps intergrated for real time travel time and distance
