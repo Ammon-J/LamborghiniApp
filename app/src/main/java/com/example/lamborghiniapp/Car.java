@@ -13,6 +13,9 @@ public class Car {
     @ColumnInfo(name = "CarId")
     private int id;
 
+    @ColumnInfo(name = "IsCarOwned")
+    private boolean isCarOwned;
+
     @ColumnInfo(name = "ModelName")
     private String modelName;
 
@@ -28,12 +31,13 @@ public class Car {
     @ColumnInfo(name = "YearMade")
     private int yearMade;
 
-    public Car(String modelName, double price, String engineType, double topSpeed, int yearMade) {
+    public Car(String modelName, double price, String engineType, double topSpeed, int yearMade, boolean isCarOwned) {
         this.modelName = modelName;
         this.price = price;
         this.engineType = engineType;
         this.topSpeed = topSpeed;
         this.yearMade = yearMade;
+        this.isCarOwned = isCarOwned;
     }
     public int getId() {
         return this.id;
@@ -59,6 +63,8 @@ public class Car {
         return this.yearMade;
     }
 
+    public boolean getIsCarOwned() { return this.isCarOwned; }
+
     public void setId(int id) {
         this.id = id;
     }
@@ -82,4 +88,6 @@ public class Car {
     public void setYearMade(int yearMade) {
         this.yearMade = yearMade;
     }
+
+    public void setIsCarOwned(boolean isCarOwned) { this.isCarOwned = isCarOwned;}
 }
