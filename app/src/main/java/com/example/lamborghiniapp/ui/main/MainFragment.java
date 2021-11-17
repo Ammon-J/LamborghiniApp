@@ -13,10 +13,11 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.lamborghiniapp.R;
+import com.example.lamborghiniapp.databinding.MainFragmentBinding;
 
 public class MainFragment extends Fragment {
-
     private MainViewModel mViewModel;
+    private MainFragmentBinding binding;
 
     public static MainFragment newInstance() {
         return new MainFragment();
@@ -26,14 +27,21 @@ public class MainFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.main_fragment, container, false);
+        binding = MainFragmentBinding.inflate(inflater, container, false);
+        mViewModel = new ViewModelProvider(this).get(MainViewModel.class);
+        return binding.getRoot();
     }
+
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        mViewModel = new ViewModelProvider(this).get(MainViewModel.class);
         // TODO: Use the ViewModel
     }
 
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        binding = null;
+    }
 }

@@ -4,10 +4,10 @@ import android.content.Context;
 import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
-@Database(entities = {Car.class, OwnedCars.class}, version = 1)
+@Database(entities = {Car.class}, version = 1)
 
 public abstract class CarRoomDatabase extends RoomDatabase{
-    public abstract Car CarDao();
+    public abstract CarDao CarDao();
     private static CarRoomDatabase INSTANCE;
     static CarRoomDatabase getDatabase(final Context context) {
         if (INSTANCE == null) {
@@ -16,7 +16,7 @@ public abstract class CarRoomDatabase extends RoomDatabase{
                     INSTANCE =
                             Room.databaseBuilder(context.getApplicationContext(),
                                     CarRoomDatabase.class,
-                                    "Lamborghini_Cars_Database").build();
+                                    "Lamborghini_Database").build();
                 }
             }
         }
