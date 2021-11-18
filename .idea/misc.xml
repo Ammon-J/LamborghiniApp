@@ -3,8 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/ammon/Documents/Andoid-Programming/Homework/LamborghiniApp/app/src/main/res/layout/activity_car_list.xml" value="0.3625" />
+        <entry key="..\:/Users/ammon/Documents/Andoid-Programming/Homework/LamborghiniApp/app/src/main/res/layout/fragment_second.xml" value="0.20364583333333333" />
         <entry key="..\:/Users/ammon/Documents/Andoid-Programming/Homework/LamborghiniApp/app/src/main/res/layout/main_activity.xml" value="0.3625" />
-        <entry key="..\:/Users/ammon/Documents/Andoid-Programming/Homework/LamborghiniApp/app/src/main/res/layout/main_fragment.xml" value="0.24139492753623187" />
+        <entry key="..\:/Users/ammon/Documents/Andoid-Programming/Homework/LamborghiniApp/app/src/main/res/layout/main_fragment.xml" value="0.1889801836636056" />
+        <entry key="..\:/Users/ammon/Documents/Andoid-Programming/Homework/LamborghiniApp/app/src/main/res/layout/models_activity.xml" value="0.3625" />
       </map>
     </option>
   </component>

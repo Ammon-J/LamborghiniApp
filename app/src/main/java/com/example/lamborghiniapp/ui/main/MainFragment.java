@@ -11,9 +11,12 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.example.lamborghiniapp.R;
 import com.example.lamborghiniapp.databinding.MainFragmentBinding;
+
+import org.w3c.dom.Text;
 
 public class MainFragment extends Fragment {
     private MainViewModel mViewModel;
