@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.LamborghiniApp">
         <activity
+            android:name=".ModelsActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
