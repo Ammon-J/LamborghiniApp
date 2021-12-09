@@ -8,6 +8,8 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import androidx.lifecycle.MutableLiveData;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicInteger;
+
 import android.app.Application;
 
 public class CarRepository {
@@ -15,6 +17,7 @@ public class CarRepository {
             new MutableLiveData<>();
     private List<Car> results;
     private final LiveData<List<Car>> yourCars;
+    private final LiveData<List<Car>> allCars;
     private final CarDao carDao;
 
     public CarRepository(Application application) {
@@ -22,20 +25,39 @@ public class CarRepository {
         db = CarRoomDatabase.getDatabase(application);
         carDao = db.CarDao();
         yourCars = carDao.getYourCars(true); // pass in true to get all the owned cars
+        allCars = carDao.getAllCars();
     }
 
-    public void addCarToCollection(Car car) { // Add a car to your car collection
+    public void insertCarIntoDb(Car car) {
         ExecutorService executor = Executors.newSingleThreadExecutor();
         executor.submit(() -> {
-            carDao.markCarAsOwned(car.getModelName(), car.getIsCarOwned());
+            carDao.insertCarIntoDb(car);
         });
         executor.shutdown();
     }
 
-    public void deleteCarFromCollection(String modelName, boolean isCarOwned) { // Only delete a car from your car collection
+    public int deleteCarFromDb(String modelName) {
+        AtomicInteger rows = new AtomicInteger();
         ExecutorService executor = Executors.newSingleThreadExecutor();
         executor.submit(() -> {
-            carDao.removeCarAsOwned(modelName, isCarOwned);
+            rows.set(carDao.deleteCarFromDb(modelName));
+        });
+        executor.shutdown();
+        return rows.get();
+    }
+
+    public void addCarToCollection(String modelName) { // Add a car to your car collection
+        ExecutorService executor = Executors.newSingleThreadExecutor();
+        executor.submit(() -> {
+            carDao.markCarAsOwnedOrRemove(modelName, true);
+        });
+        executor.shutdown();
+    }
+
+    public void deleteCarFromCollection(String modelName) {
+        ExecutorService executor = Executors.newSingleThreadExecutor();
+        executor.submit(() -> {
+            carDao.markCarAsOwnedOrRemove(modelName, false); // Only delete a car from your car collection
         });
         executor.shutdown();
     }
@@ -49,6 +71,7 @@ public class CarRepository {
     public LiveData<List<Car>> getYourCars() {
         return yourCars;
     }
+    public LiveData<List<Car>> getAllCars() { return allCars; }
     public MutableLiveData<List<Car>> getSearchResults() {
         return searchResults;
     }

@@ -1,12 +1,17 @@
 package com.example.lamborghiniapp;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.lifecycle.ViewModelProvider;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
 
 import com.example.lamborghiniapp.ui.collection.CollectionFragment;
+import com.example.lamborghiniapp.ui.collection.CollectionViewModel;
 
 public class CollectionActivity extends AppCompatActivity {
 
@@ -22,7 +27,7 @@ public class CollectionActivity extends AppCompatActivity {
     }
 
     public void openModelPage(View view) {
-        Intent intent = new Intent(this, ModelsActivity.class);
+        Intent intent = new Intent(this, ModelListActivity.class);
         startActivity(intent);
     }
 

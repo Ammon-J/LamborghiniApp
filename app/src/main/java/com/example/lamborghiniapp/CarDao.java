@@ -3,16 +3,20 @@ import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Insert;
 import androidx.room.Query;
+import androidx.room.Update;
+
 import java.util.List;
 @Dao
 
 public interface CarDao {
-    @Insert // Insert into OwnedCars table
-    void addCar(Car newCar);
-    @Query("UPDATE Cars SET IsCarOwned = :isCarOwned WHERE ModelName = :modelName")
-    void removeCarAsOwned(String modelName, boolean isCarOwned);
+    @Insert
+    void insertCarIntoDb(Car car);
+    @Query("DELETE FROM Cars WHERE ModelName = :modelName")
+    int deleteCarFromDb(String modelName);
+    @Query("SELECT * FROM Cars")
+    LiveData<List<Car>> getAllCars();
+    @Query(("UPDATE Cars SET IsCarOwned = :isCarOwned WHERE ModelName = :modelName"))
+    void markCarAsOwnedOrRemove(String modelName, boolean isCarOwned);
     @Query("SELECT * FROM Cars WHERE IsCarOwned = :isCarOwned")
     LiveData<List<Car>> getYourCars(boolean isCarOwned);
-    @Query(("UPDATE Cars SET IsCarOwned = :isCarOwned WHERE ModelName = :modelName"))
-    void markCarAsOwned(String modelName, boolean isCarOwned);
 }

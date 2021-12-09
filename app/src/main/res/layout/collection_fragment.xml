@@ -2,21 +2,26 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/collection"
+    android:id="@+id/collection_recycler"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.collection.CollectionFragment"
-
     android:background="@drawable/ic_lamborghini_background"
-    android:orientation="horizontal">
 
-    <RelativeLayout
-        android:id="@+id/main"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:clickable="false"
-        android:fadeScrollbars="false"
-        tools:context=".ui.main.MainFragment">
+    android:orientation="horizontal"
+    android:theme="@style/Theme.LamborghiniApp"
+    tools:context=".ui.collection.CollectionFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:theme="@style/Theme.MaterialComponents.DayNight.DarkActionBar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/nav"
@@ -24,25 +29,25 @@
             android:layout_height="68dp"
             android:background="#0d0d0d"
             app:itemIconTint="@color/white"
-            app:itemTextColor="@color/black">
+            app:itemTextColor="@color/black"
+            tools:ignore="MissingConstraints">
 
             <Button
-                android:id="@+id/mapBtn"
+                android:id="@+id/homeBtn"
                 style="@style/Widget.AppCompat.Button.Borderless"
-                android:layout_width="58.5dp"
+                android:layout_width="66.5dp"
                 android:layout_height="0dp"
                 android:onClick="openCollectionPage"
-                android:text="Map"
+                android:text="Home"
                 android:textAlignment="viewStart"
                 android:textColor="@color/white"
                 android:textSize="12sp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/collectionBtn"
                 app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/dealershipBtn"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.0"
-                tools:text="Map" />
+                tools:text="Home" />
 
             <Button
                 android:id="@+id/dealershipBtn"
@@ -55,11 +60,10 @@
                 android:textSize="12sp"
                 app:iconPadding="4dp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/mapBtn"
+                app:layout_constraintEnd_toStartOf="@+id/modelsBtn"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toEndOf="@+id/collectionBtn"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.0"
                 tools:text="Dealerships" />
 
             <Button
@@ -72,55 +76,107 @@
                 android:textColor="@color/white"
                 android:textSize="12sp"
                 app:iconPadding="1dp"
-                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintBaseline_toBaselineOf="@+id/dealershipBtn"
                 app:layout_constraintEnd_toStartOf="@+id/dealershipBtn"
                 app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/carListBtn"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="1.0"
+                app:layout_constraintStart_toEndOf="@+id/homeBtn"
                 tools:text="Collection" />
 
             <Button
-                android:id="@+id/carListBtn"
+                android:id="@+id/modelsBtn"
                 style="@style/Widget.AppCompat.Button.Borderless"
                 android:layout_width="88dp"
-                android:layout_height="70dp"
+                android:layout_height="0dp"
                 android:onClick="openModelPage"
                 android:text="Models"
                 android:textAlignment="center"
                 android:textColor="@color/white"
                 android:textSize="12sp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/collectionBtn"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/dealershipBtn"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.0"
                 tools:text="Models" />
-
-            <androidx.constraintlayout.widget.Barrier
-                android:id="@+id/barrier2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:barrierDirection="top"
-                app:constraint_referenced_ids="dealershipBtn,mapBtn,collectionBtn,carListBtn" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
+        <Button
+            android:id="@+id/deleteCarBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:backgroundTint="#B3787B87"
+            android:text="Delete From Collection"
+            app:layout_constraintBottom_toTopOf="@+id/car_recycler"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/carName" />
+
+        <EditText
+            android:id="@+id/carName"
+            android:layout_width="338dp"
+            android:layout_height="61dp"
+            android:layout_marginTop="40dp"
+            android:background="#990D0D0D"
+            android:ems="10"
+            android:fontFamily="sans-serif-light"
+            android:inputType="textPersonName"
+            android:lines="@integer/config_navAnimTime"
+            android:text="Model Name"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toTopOf="@+id/deleteCarBtn"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
         <TextView
-            android:id="@+id/textView4"
-            android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginTop="99dp"
-            android:layout_marginEnd="4dp"
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="60dp"
+            android:layout_marginBottom="30dp"
             android:fontFamily="sans-serif-thin"
             android:text="Your Collection"
             android:textAlignment="center"
             android:textColor="@color/white"
-            android:textSize="34sp" />
+            android:textSize="48sp"
+            app:layout_constraintBottom_toTopOf="@+id/carName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.49"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/nav"
+            app:layout_constraintVertical_bias="0.061" />
 
-    </RelativeLayout>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/car_recycler"
+            android:layout_width="355dp"
+            android:layout_height="252dp"
+            android:layout_marginTop="50dp"
+            android:background="#990D0D0D"
+            android:clipToPadding="false"
+            android:contextClickable="false"
+            android:textAlignment="textEnd"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/deleteCarBtn" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="20dp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="20dp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

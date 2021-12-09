@@ -8,100 +8,10 @@
     android:orientation="horizontal"
     tools:context=".ModelsActivity">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/nav"
-        android:layout_width="match_parent"
-        android:layout_height="68dp"
-        android:background="#0d0d0d"
-        app:itemIconTint="@color/white"
-        app:itemTextColor="@color/black"
-        tools:ignore="MissingConstraints">
-
-        <Button
-            android:id="@+id/mapBtn"
-            style="@style/Widget.AppCompat.Button.Borderless"
-            android:layout_width="58.5dp"
-            android:layout_height="0dp"
-            android:onClick="openCollectionPage"
-            android:text="Map"
-            android:textAlignment="viewStart"
-            android:textColor="@color/white"
-            android:textSize="12sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/dealershipBtn"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0"
-            tools:text="Map" />
-
-        <Button
-            android:id="@+id/dealershipBtn"
-            style="@style/Widget.AppCompat.Button.Borderless"
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:onClick="openDealershipsPage"
-            android:text="Dealerships"
-            android:textColor="@color/white"
-            android:textSize="12sp"
-            app:iconPadding="4dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/mapBtn"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/collectionBtn"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0"
-            tools:text="Dealerships" />
-
-        <Button
-            android:id="@+id/collectionBtn"
-            style="@style/Widget.AppCompat.Button.Borderless"
-            android:layout_width="wrap_content"
-            android:layout_height="68dp"
-            android:onClick="openCollectionPage"
-            android:text="Collection"
-            android:textColor="@color/white"
-            android:textSize="12sp"
-            app:iconPadding="1dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/dealershipBtn"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/carListBtn"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="1.0"
-            tools:text="Collection" />
-
-        <Button
-            android:id="@+id/carListBtn"
-            style="@style/Widget.AppCompat.Button.Borderless"
-            android:layout_width="88dp"
-            android:layout_height="70dp"
-            android:onClick="openModelPage"
-            android:text="Models"
-            android:textAlignment="center"
-            android:textColor="@color/white"
-            android:textSize="12sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/collectionBtn"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0"
-            tools:text="Models" />
-
-        <androidx.constraintlayout.widget.Barrier
-            android:id="@+id/barrier2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:barrierDirection="top"
-            app:constraint_referenced_ids="dealershipBtn,mapBtn,collectionBtn,carListBtn" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
     <ScrollView
         android:id="@+id/scrollView4"
         android:layout_width="405dp"
-        android:layout_height="750dp"
+        android:layout_height="685dp"
         android:layout_marginTop="28dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -163,15 +73,11 @@
 
             <Button
                 android:id="@+id/centenarioBtn"
-                style="@android:style/Widget.Button"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
-                android:background="@color/black"
-                android:fontFamily="sans-serif-medium"
-                android:text="Add Car To Collection"
-                android:textAlignment="center"
-                android:textColor="@color/white"
-                android:textSize="16sp" />
+                android:backgroundTint="#66787B87"
+                android:text="Add To Collection"
+                android:textColor="@color/white" />
 
             <TextView
                 android:id="@+id/textView2"
@@ -202,20 +108,18 @@
                 android:layout_width="match_parent"
                 android:layout_height="146dp"
                 android:background="#990D0D0D"
-                android:text="\n EngineType: Hybrid V12\n Horsepower: 774\n 0-60: 2.7 seconds\n Top Speed: ~ 217 mph\n Price: ~$3,700,00"
+                android:text="\n EngineType: Hybrid V12\n Horsepower: 774\n 0-60: 2.7 seconds\n Top Speed: ~ 217 mph\n Price: ~$3,700,000"
                 android:textAlignment="center"
                 android:textColor="@color/white"
                 android:textSize="18sp" />
 
             <Button
                 android:id="@+id/sianBtn"
-                style="@android:style/Widget.Button"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
-                android:fontFamily="sans-serif-medium"
-                android:text="Add Car To Collection"
-                android:textColor="@color/white"
-                android:textSize="16sp" />
+                android:backgroundTint="#66787B87"
+                android:text="Add To Collection"
+                android:textColor="@color/white" />
 
             <TextView
                 android:id="@+id/textView9"
@@ -253,15 +157,11 @@
 
             <Button
                 android:id="@+id/aventadorBtn"
-                style="@android:style/Widget.Button"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
-                android:background="@color/black"
-                android:fontFamily="sans-serif-medium"
-                android:text="Add Car To Collection"
-                android:textAlignment="center"
-                android:textColor="@color/white"
-                android:textSize="16sp" />
+                android:backgroundTint="#66787B87"
+                android:text="Add To Collection"
+                android:textColor="@color/white" />
 
             <TextView
                 android:id="@+id/textView13"
@@ -299,15 +199,11 @@
 
             <Button
                 android:id="@+id/huracanBtn"
-                style="@android:style/Widget.Button"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
-                android:background="@color/black"
-                android:fontFamily="sans-serif-medium"
-                android:text="Add Car To Collection"
-                android:textAlignment="center"
-                android:textColor="@color/white"
-                android:textSize="16sp" />
+                android:backgroundTint="#66787B87"
+                android:text="Add To Collection"
+                android:textColor="@color/white" />
 
             <TextView
                 android:id="@+id/textView15"
@@ -316,6 +212,91 @@
 
         </LinearLayout>
     </ScrollView>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/nav"
+        android:layout_width="match_parent"
+        android:layout_height="68dp"
+        android:background="#0d0d0d"
+        app:itemIconTint="@color/white"
+        app:itemTextColor="@color/black"
+        tools:ignore="MissingConstraints">
+
+        <Button
+            android:id="@+id/homeBtn"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="66.5dp"
+            android:layout_height="0dp"
+            android:onClick="openCollectionPage"
+            android:text="Home"
+            android:textAlignment="viewStart"
+            android:textColor="@color/white"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/collectionBtn"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Home" />
+
+        <Button
+            android:id="@+id/dealershipBtn"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:onClick="openDealershipsPage"
+            android:text="Dealerships"
+            android:textColor="@color/white"
+            android:textSize="12sp"
+            app:iconPadding="4dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/modelsBtn"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/collectionBtn"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Dealerships" />
+
+        <Button
+            android:id="@+id/collectionBtn"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="wrap_content"
+            android:layout_height="68dp"
+            android:onClick="openCollectionPage"
+            android:text="Collection"
+            android:textColor="@color/white"
+            android:textSize="12sp"
+            app:iconPadding="1dp"
+            app:layout_constraintBaseline_toBaselineOf="@+id/dealershipBtn"
+            app:layout_constraintEnd_toStartOf="@+id/dealershipBtn"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/homeBtn"
+            tools:text="Collection" />
+
+        <Button
+            android:id="@+id/modelsBtn"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="88dp"
+            android:layout_height="0dp"
+            android:onClick="openModelPage"
+            android:text="Models"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/dealershipBtn"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Models" />
+
+        <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/barrier2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:barrierDirection="top"
+            app:constraint_referenced_ids="dealershipBtn,homeBtn,collectionBtn,homeBtn" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -13,6 +13,9 @@ public class Car {
     @ColumnInfo(name = "CarId")
     private int id;
 
+    @ColumnInfo(name = "HorsePower")
+    private int horsePower;
+
     @ColumnInfo(name = "IsCarOwned")
     private boolean isCarOwned;
 
@@ -28,15 +31,16 @@ public class Car {
     @ColumnInfo(name = "TopSpeed")
     private double topSpeed;
 
-    @ColumnInfo(name = "YearMade")
-    private int yearMade;
+    @ColumnInfo(name = "ZeroToSixty")
+    private double zeroToSixty;
 
-    public Car(String modelName, double price, String engineType, double topSpeed, int yearMade, boolean isCarOwned) {
+    public Car(String modelName, double price, int horsePower, String engineType, double topSpeed, double zeroToSixty, boolean isCarOwned) {
         this.modelName = modelName;
         this.price = price;
         this.engineType = engineType;
+        this.horsePower = horsePower;
         this.topSpeed = topSpeed;
-        this.yearMade = yearMade;
+        this.zeroToSixty = zeroToSixty;
         this.isCarOwned = isCarOwned;
     }
     public int getId() {
@@ -55,12 +59,16 @@ public class Car {
         return this.engineType;
     }
 
+    public int getHorsePower() {
+        return this.horsePower;
+    }
+
     public double getTopSpeed() {
         return this.topSpeed;
     }
 
-    public int getYearMade() {
-        return this.yearMade;
+    public double getZeroToSixty() {
+        return this.zeroToSixty;
     }
 
     public boolean getIsCarOwned() { return this.isCarOwned; }
@@ -81,12 +89,16 @@ public class Car {
         this.engineType = engineType;
     }
 
+    public void setHorsePower(int horsePower) {
+        this.horsePower = horsePower;
+    }
+
     public void setTopSpeed(double topSpeed) {
         this.topSpeed = topSpeed;
     }
 
-    public void setYearMade(int yearMade) {
-        this.yearMade = yearMade;
+    public void setZeroToSixty(int yearMade) {
+        this.zeroToSixty = zeroToSixty;
     }
 
     public void setIsCarOwned(boolean isCarOwned) { this.isCarOwned = isCarOwned;}
