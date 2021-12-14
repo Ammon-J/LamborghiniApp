@@ -19,7 +19,6 @@ import com.example.lamborghiniapp.databinding.MainFragmentBinding;
 import org.w3c.dom.Text;
 
 public class MainFragment extends Fragment {
-    private MainViewModel mViewModel;
     private MainFragmentBinding binding;
 
     public static MainFragment newInstance() {
@@ -31,7 +30,6 @@ public class MainFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
         binding = MainFragmentBinding.inflate(inflater, container, false);
-        mViewModel = new ViewModelProvider(this).get(MainViewModel.class);
         return binding.getRoot();
     }
 

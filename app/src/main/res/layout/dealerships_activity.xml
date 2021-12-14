@@ -8,104 +8,211 @@
     android:orientation="horizontal"
     tools:context=".ModelsActivity">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/nav"
-        android:layout_width="403dp"
-        android:layout_height="69dp"
-        android:background="#0d0d0d"
-        app:itemIconTint="@color/white"
-        app:itemTextColor="@color/black"
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="#990D0D0D"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <Button
-            android:id="@+id/modelsBtn"
-            style="@style/Widget.AppCompat.Button.Borderless"
-            android:layout_width="88dp"
-            android:layout_height="69dp"
-            android:onClick="openCollectionPage"
-            android:text="Models"
-            android:textAlignment="viewStart"
-            android:textColor="@color/white"
-            android:textSize="12sp"
-            app:layout_constraintBaseline_toBaselineOf="@+id/dealershipBtn"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/dealershipBtn"
-            tools:text="Models" />
-
-        <Button
-            android:id="@+id/dealershipBtn"
-            style="@style/Widget.AppCompat.Button.Borderless"
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:onClick="openDealershipsPage"
-            android:text="Dealerships"
-            android:textColor="@color/white"
-            android:textSize="12sp"
-            app:iconPadding="4dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/modelsBtn"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/collectionBtn"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:text="Dealerships" />
-
-        <Button
-            android:id="@+id/collectionBtn"
-            style="@style/Widget.AppCompat.Button.Borderless"
-            android:layout_width="wrap_content"
-            android:layout_height="68dp"
-            android:onClick="openCollectionPage"
-            android:text="Collection"
-            android:textColor="@color/white"
-            android:textSize="12sp"
-            app:iconPadding="1dp"
-            app:layout_constraintBaseline_toBaselineOf="@+id/dealershipBtn"
-            app:layout_constraintEnd_toStartOf="@+id/dealershipBtn"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/homeBtn"
-            tools:text="Collection" />
-
-        <Button
-            android:id="@+id/homeBtn"
-            style="@style/Widget.AppCompat.Button.Borderless"
-            android:layout_width="66.5dp"
-            android:layout_height="0dp"
-            android:onClick="openModelPage"
-            android:text="Home"
-            android:textAlignment="center"
-            android:textColor="@color/white"
-            android:textSize="12sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/collectionBtn"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:text="Home" />
-
-        <androidx.constraintlayout.widget.Barrier
-            android:id="@+id/barrier2"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:barrierDirection="top"
-            app:constraint_referenced_ids="dealershipBtn,homeBtn,collectionBtn,homeBtn,textView4" />
+            android:orientation="vertical">
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/nav"
+                android:layout_width="match_parent"
+                android:layout_height="68dp"
+                android:background="#0d0d0d"
+                app:itemIconTint="@color/white"
+                app:itemTextColor="@color/black"
+                app:layout_constraintBottom_toTopOf="@+id/textView3"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="MissingConstraints">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:fontFamily="sans-serif-thin"
-        android:text="Dealerships"
-        android:textAlignment="center"
-        android:textColor="@color/white"
-        android:textSize="34sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nav" />
+                <Button
+                    android:id="@+id/homeBtn"
+                    style="@style/Widget.AppCompat.Button.Borderless"
+                    android:layout_width="66.5dp"
+                    android:layout_height="0dp"
+                    android:onClick="openHomePage"
+                    android:text="Home"
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/white"
+                    android:textSize="12sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/collectionBtn"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="Home" />
+
+                <Button
+                    android:id="@+id/dealershipBtn"
+                    style="@style/Widget.AppCompat.Button.Borderless"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:onClick="openDealershipsPage"
+                    android:text="Dealerships"
+                    android:textColor="@color/white"
+                    android:textSize="12sp"
+                    app:iconPadding="4dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/modelsBtn"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/collectionBtn"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="Dealerships" />
+
+                <Button
+                    android:id="@+id/collectionBtn"
+                    style="@style/Widget.AppCompat.Button.Borderless"
+                    android:layout_width="wrap_content"
+                    android:layout_height="68dp"
+                    android:onClick="openCollectionPage"
+                    android:text="Collection"
+                    android:textColor="@color/white"
+                    android:textSize="12sp"
+                    app:iconPadding="1dp"
+                    app:layout_constraintBaseline_toBaselineOf="@+id/dealershipBtn"
+                    app:layout_constraintEnd_toStartOf="@+id/dealershipBtn"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/homeBtn"
+                    tools:text="Collection" />
+
+                <Button
+                    android:id="@+id/modelsBtn"
+                    style="@style/Widget.AppCompat.Button.Borderless"
+                    android:layout_width="88dp"
+                    android:layout_height="0dp"
+                    android:onClick="openModelPage"
+                    android:text="Models"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textSize="12sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/dealershipBtn"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="Models" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:id="@+id/textView18"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                android:fontFamily="sans-serif-thin"
+                android:text="Dealerships"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="48sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.497"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/nav" />
+
+            <TextView
+                android:id="@+id/textView17"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50sp"
+                android:fontFamily="sans-serif-light"
+                android:text="LAMBORGHINI SEATTLE\n 13605 NE 20th Street\n Bellevue, WA"
+                android:textAlignment="center"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.092"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView"
+                app:layout_constraintVertical_bias="0.113" />
+
+            <TextView
+                android:id="@+id/textView19"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50sp"
+                android:fontFamily="sans-serif-light"
+                android:text="LAMBORGHINI DENVER\n 1850 Lucent court Highlands\n Ranch, CO"
+                android:textAlignment="center"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.866"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <TextView
+                android:id="@+id/textView20"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50sp"
+                android:fontFamily="sans-serif-light"
+                android:text="LAMBORGHINI CHARLOTTE\n 6500 E Independence Blvd\n Charlotte, NC"
+                android:textAlignment="center"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.091"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.535" />
+
+            <TextView
+                android:id="@+id/textView21"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50sp"
+                android:fontFamily="sans-serif-light"
+                android:text="LAMBORGHINI NORTH SCOTTSDALE\n 7171 E Chauncey Lane\n Phoenix, AZ"
+                android:textAlignment="center"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/textView22"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50sp"
+                android:fontFamily="sans-serif-light"
+                android:text="LAMBORGHINI SALT LAKE CITY\n 1231 W South Jordan Parkway\n South Jordan, UT "
+                android:textAlignment="center"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/textView24"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50sp"
+                android:fontFamily="sans-serif-light"
+                android:text="LAMBORGHINI BEVERLY HILLS\n 8423 Wilshire Blvd\n Beverly Hills, CA"
+                android:textAlignment="center"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/textView25"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50sp"
+                android:layout_marginBottom="70sp"
+                android:fontFamily="sans-serif-light"
+                android:text="LAMBORGHINI HAWAII\n 888 Kapiolani Blvd\n Honolulu, HI"
+                android:textAlignment="center"
+                android:textSize="20sp" />
+
+        </LinearLayout>
+    </ScrollView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
 
