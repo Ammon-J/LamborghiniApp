@@ -77,6 +77,14 @@ public class CollectionFragment extends Fragment {
                 }
             }
         });
+
+        binding.carName.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(binding.carName.getText().toString().equals("Model Name"))
+                    binding.carName.setText("");
+            }
+        });
     }
 
     private void observerSetup() {

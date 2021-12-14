@@ -9,9 +9,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.lamborghiniapp.ui.collection.CollectionFragment;
 import com.example.lamborghiniapp.ui.collection.CollectionViewModel;
+import com.example.lamborghiniapp.ui.main.MainFragment;
 
 public class CollectionActivity extends AppCompatActivity {
 
@@ -26,14 +28,18 @@ public class CollectionActivity extends AppCompatActivity {
         }
     }
 
+    public void openHomePage(View view) {
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+    }
+
     public void openModelPage(View view) {
         Intent intent = new Intent(this, ModelListActivity.class);
         startActivity(intent);
     }
 
     public void openCollectionPage(View view) {
-        Intent intent = new Intent(this, CollectionActivity.class);
-        startActivity(intent);
+        Toast.makeText(getApplicationContext(), "You are are already on the Collection page", Toast.LENGTH_SHORT).show();
     }
 
     public void openDealershipsPage(View view) {
